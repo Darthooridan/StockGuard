@@ -1,0 +1,15 @@
+# Ignoruj folder ze środowiskiem wirtualnym
+venv/
+.venv/
+
+# Ignoruj skompilowane pliki Pythona
+__pycache__/
+*.pyc
+
+# Ignoruj bazę danych (nie chcemy jej w chmurze!)
+*.db
+*.sqlite3
+
+# Ignoruj pliki konfiguracyjne systemu i edytora
+.DS_Store
+.vscode/
