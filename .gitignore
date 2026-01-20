@@ -1,15 +1,16 @@
-# Ignoruj folder ze środowiskiem wirtualnym
+# Virtual Environment
 venv/
 .venv/
 
-# Ignoruj skompilowane pliki Pythona
+# Python compiled files
 __pycache__/
 *.pyc
 
-# Ignoruj bazę danych (nie chcemy jej w chmurze!)
+# Database (Keep local only)
 *.db
 *.sqlite3
 
-# Ignoruj pliki konfiguracyjne systemu i edytora
+# System and Editor config
 .DS_Store
 .vscode/
+.idea/
