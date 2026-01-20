@@ -99,6 +99,18 @@ def get_item(item_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Item not found")
     return item
 
+@app.get("/reports/low-stock", response_model=List[ItemResponse])
+def get_low_stock_items(threshold: int = 10, db: Session = Depends(get_db)):
+    """
+    Returns a list of items with quantity below the specified threshold.
+    Default threshold is 10 units.
+    Useful for restocking alerts.
+    """
+    # Filter items where quantity is less than the threshold
+    low_stock_items = db.query(DBItem).filter(DBItem.quantity < threshold).all()
+    
+    return low_stock_items
+
 @app.delete("/items/{item_id}")
 def delete_item(item_id: int, db: Session = Depends(get_db)):
     """Delete an item from the database."""
